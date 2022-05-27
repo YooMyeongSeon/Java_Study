@@ -1,0 +1,42 @@
+package AIM;
+
+import java.util.Scanner;
+
+public class Main {
+	static int addMemer = 0;
+	public static Member[] memberlist = new Member[0 + addMemer];
+	static Scanner scan = new Scanner(System.in);
+	
+	
+	public static void main(String[] args) {
+		Service service = new Service();
+		
+		boolean run = true;
+		
+		do {
+			System.out.println("==============================");
+			System.out.println("1. 회원가입");
+			System.out.println("2. 로그인");
+			System.out.println("3. 종료");
+			System.out.println("==============================");
+			System.out.println("원하는 메뉴의 번호를 입력하세요 : ");
+			int selectNum = Integer.parseInt(scan.nextLine());
+			switch (selectNum) {
+			case 0 :
+				System.out.println(memberlist);
+				break;
+			case 1 : 
+				service.signUp();
+				break;
+			case 2 :
+				service.login();
+				break;
+			case 3 :
+				run = service.exit();
+				break;
+			default :
+				System.out.println("올바른 입력이 아닙니다.");
+			}
+		} while (run);
+	}
+}

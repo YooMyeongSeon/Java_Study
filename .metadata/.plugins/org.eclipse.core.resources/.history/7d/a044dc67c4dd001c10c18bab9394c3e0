@@ -1,0 +1,29 @@
+package chap3;
+
+class Parent {
+	int compute(int num) {
+		if (num<=1) return num;
+		return compute(num-1) + compute(num-2);
+	}
+}
+
+class Child extends ParentMain {
+	@Override
+	int compute(int num) {
+		if (num<=1) return num;
+		return compute(num-1) + compute(num-3);
+	}
+}
+
+public class Test {
+
+	public static void main(String[] args) {
+		ParentMain obj_1 = new ParentMain();
+		ParentMain obj_2 = new Child_0();
+		// 형 변환 : 상속 관계에서 메소드 오버라이딩을 적용하면 반드시 자식클래스의 메소드로 호출하게 된다.
+		// Chiod 클래스의 compute() 메소드를 호출한다.
+		
+		System.out.println(obj_2.compute(4));
+	}
+
+}
